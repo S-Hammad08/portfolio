@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
-
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 
@@ -55,7 +54,7 @@ export default function Hero() {
                 </Button>
               </a>
 
-              <a href="/resume.pdf" download>
+              <a href="/SyedHammadNadeem.pdf" download>
                 <Button variant="outline" className="inline-flex items-center gap-2">
                   <FiDownload className="w-4 h-4" />
                   Download Resume

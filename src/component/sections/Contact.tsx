@@ -39,7 +39,7 @@ export default function Contact() {
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-8">
 
                     {/* Left Column: Info & Details */}
-                    <div className="lg:col-span-5 space-y-8">
+                    <div className="lg:col-span-12 space-y-8">
                         <div>
                             <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
                                 Let&apos;s build something together
@@ -50,26 +50,26 @@ export default function Contact() {
                         </div>
 
                         {/* Contact details list */}
-                        <div className="space-y-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 shrink-0">
                                     <FiMail className="w-5 h-5" />
                                 </div>
-                                <div>
+                                <div className="min-w-0 flex-1">
                                     <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Email</p>
-                                    <a href="mailto:hammadshahali080@gmail.com" className="text-sm text-zinc-300 hover:text-white transition">
+                                    <a href="mailto:hammadshahali080@gmail.com" title="hammadshahali080@gmail.com" className="text-xs xl:text-sm text-zinc-300 hover:text-white transition block truncate">
                                         hammadshahali080@gmail.com
                                     </a>
                                 </div>
                             </div>
 
                             <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 shrink-0">
                                     <FiMapPin className="w-5 h-5" />
                                 </div>
-                                <div>
+                                <div className="min-w-0 flex-1">
                                     <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Location</p>
-                                    <p className="text-sm text-zinc-300">Lahore, Pakistan</p>
+                                    <p className="text-xs xl:text-sm text-zinc-300 truncate" title="Lahore, Pakistan">Lahore, Pakistan</p>
                                 </div>
                             </div>
 
@@ -79,12 +79,12 @@ export default function Contact() {
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-indigo-500/30 hover:bg-zinc-950/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.06)] transition duration-300 group"
                             >
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 group-hover:text-white transition duration-300">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 group-hover:text-white transition duration-300 shrink-0">
                                     <FiLinkedin className="w-5 h-5" />
                                 </div>
-                                <div>
+                                <div className="min-w-0 flex-1">
                                     <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">LinkedIn</p>
-                                    <p className="text-sm text-zinc-300 group-hover:text-white transition">syedhammad-dev</p>
+                                    <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="syedhammad-dev">syedhammad-dev</p>
                                 </div>
                             </a>
 
@@ -94,12 +94,12 @@ export default function Contact() {
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-indigo-500/30 hover:bg-zinc-950/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.06)] transition duration-300 group"
                             >
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 group-hover:text-white transition duration-300">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 group-hover:text-white transition duration-300 shrink-0">
                                     <FiGithub className="w-5 h-5" />
                                 </div>
-                                <div>
+                                <div className="min-w-0 flex-1">
                                     <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">GitHub</p>
-                                    <p className="text-sm text-zinc-300 group-hover:text-white transition">S-Hammad08</p>
+                                    <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="S-Hammad08">S-Hammad08</p>
                                 </div>
                             </a>
                         </div>
