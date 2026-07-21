@@ -54,7 +54,7 @@ export default function Hero() {
                 </Button>
               </a>
 
-              <a href="/SyedHammadNadeem.pdf" download>
+              <a href="/SyedHammadCv.pdf" download>
                 <Button variant="outline" className="inline-flex items-center gap-2">
                   <FiDownload className="w-4 h-4" />
                   Download Resume
