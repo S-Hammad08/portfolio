@@ -7,7 +7,7 @@ import Container from "../ui/Container";
 const navLinks = [
     "About",
     "Skills",
-    "Projects",
+    "Project",
     "Contact",
 ];
 
@@ -65,4 +65,4 @@ export default function Navbar() {
             )}
         </header>
     );
-}
+}

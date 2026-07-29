@@ -50,7 +50,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
               <a href="#projects">
                 <Button>
-                  View Projects
+                  View Project
                 </Button>
               </a>
 

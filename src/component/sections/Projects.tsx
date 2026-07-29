@@ -11,7 +11,7 @@ export default function Projects() {
         >
             <Container>
                 <SectionHeading
-                    title="Featured Projects"
+                    title="Featured Project"
                     subtitle="My Work"
                 />
 
