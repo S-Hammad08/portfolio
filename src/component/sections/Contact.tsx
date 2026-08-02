@@ -1,8 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import { FiArrowUp, FiArrowUpRight, FiMail, FiLinkedin, FiGithub, FiMapPin } from "react-icons/fi";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 
 export default function Contact() {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText("hammadshahali080@gmail.com");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
         <section
             id="contact"
@@ -35,59 +46,69 @@ export default function Contact() {
                         </a>
                     </div>
 
-                        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                            <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 shrink-0">
-                                    <FiMail className="w-5 h-5" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Email</p>
-                                    <a href="mailto:hammadshahali080@gmail.com" title="hammadshahali080@gmail.com" className="text-xs xl:text-sm text-zinc-300 hover:text-white transition block truncate">
-                                        hammadshahali080@gmail.com
-                                    </a>
-                                </div>
+                    <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        <a
+                            href="mailto:hammadshahali080@gmail.com"
+                            onClick={handleCopyEmail}
+                            className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-indigo-500/50 hover:bg-indigo-500/[0.06] relative"
+                        >
+                            <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-indigo-500/15 group-hover:text-indigo-400">
+                                <FiMail className="w-5 h-5" />
                             </div>
-
-                            <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 shrink-0">
-                                    <FiMapPin className="w-5 h-5" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Location</p>
-                                    <p className="text-xs xl:text-sm text-zinc-300 truncate" title="Lahore, Pakistan">Lahore, Pakistan</p>
-                                </div>
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-indigo-400">Email</p>
+                                <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="hammadshahali080@gmail.com">
+                                    hammadshahali080@gmail.com
+                                </p>
                             </div>
+                            {copied && (
+                                <span className="absolute -top-2 right-4 bg-indigo-600 text-[10px] text-white px-2 py-0.5 rounded-md font-semibold tracking-wide">
+                                    Copied!
+                                </span>
+                            )}
+                        </a>
 
-                            <a
-                                href="https://www.linkedin.com/in/syedhammad-dev/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/[0.06]"
-                            >
-                                <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-[#0A66C2]/15 group-hover:text-[#4FA3E3]">
-                                    <FiLinkedin className="w-5 h-5" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-[#4FA3E3]">LinkedIn</p>
-                                    <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-[#8CC8F2] transition truncate" title="syedhammad-dev">syedhammad-dev</p>
-                                </div>
-                            </a>
 
-                            <a
-                                href="https://github.com/S-Hammad08"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-white/30 hover:bg-white/[0.045]"
-                            >
-                                <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-white/10 group-hover:text-white">
-                                    <FiGithub className="w-5 h-5" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-zinc-300">GitHub</p>
-                                    <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="S-Hammad08">S-Hammad08</p>
-                                </div>
-                            </a>
+                        <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
+                            <div className="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 shrink-0">
+                                <FiMapPin className="w-5 h-5" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Location</p>
+                                <p className="text-xs xl:text-sm text-zinc-300 truncate" title="Lahore, Pakistan">Lahore, Pakistan</p>
+                            </div>
                         </div>
+
+                        <a
+                            href="https://www.linkedin.com/in/syedhammad-dev/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/[0.06]"
+                        >
+                            <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-[#0A66C2]/15 group-hover:text-[#4FA3E3]">
+                                <FiLinkedin className="w-5 h-5" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-[#4FA3E3]">LinkedIn</p>
+                                <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-[#8CC8F2] transition truncate" title="syedhammad-dev">syedhammad-dev</p>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://github.com/S-Hammad08"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-white/30 hover:bg-white/[0.045]"
+                        >
+                            <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-white/10 group-hover:text-white">
+                                <FiGithub className="w-5 h-5" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                                <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-zinc-300">GitHub</p>
+                                <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="S-Hammad08">S-Hammad08</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </Container>
 
