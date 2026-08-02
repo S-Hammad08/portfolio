@@ -8,6 +8,8 @@ type ProjectType = {
     link?: string;
     github?: string;
     image?: string;
+    role: string;
+    highlights: string[];
 };
 
 type ProjectCardProps = {
@@ -16,79 +18,96 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group relative flex flex-col h-full rounded-2xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-zinc-700/80 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)]">
-            
-            {/* Visual Container */}
-            <div className="relative w-full aspect-video overflow-hidden border-b border-zinc-900 bg-zinc-900">
-                {project.image ? (
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                ) : (
-                    /* Abstract Gradient Background if no image is available */
-                    <div className="w-full h-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-indigo-950/20 flex items-center justify-center p-6 transition-all duration-500 group-hover:from-zinc-900 group-hover:via-indigo-950/10 group-hover:to-zinc-950">
-                        <div className="absolute inset-0 bg-grid-pattern opacity-[0.1] group-hover:opacity-[0.15] transition-opacity" />
-                        <span className="text-xl font-bold tracking-widest text-zinc-700/40 uppercase group-hover:text-indigo-400/30 transition-colors duration-300">
-                            {project.title.split(" ")[0]}
-                        </span>
+        <article className="group relative overflow-hidden rounded-3xl border border-white/[0.09] bg-black transition-all duration-500 hover:border-white/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+            <div className="flex items-center justify-between border-b border-white/[0.08] px-5 py-4 sm:px-7">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-zinc-500">01 / Featured build</p>
+                <div className="flex items-center gap-2 text-xs text-zinc-400">
+                    {/* <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> */}
+                    Live product
+                </div>
+            </div>
+
+            <div className="grid lg:grid-cols-12">
+                <div className="relative min-h-[260px] overflow-hidden border-b border-white/[0.08] bg-zinc-900 sm:min-h-[360px] lg:col-span-7 lg:min-h-[620px] lg:border-b-0 lg:border-r">
+                    {project.image ? (
+                        <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            sizes="(min-width: 1024px) 58vw, 100vw"
+                            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
+                        />
+                    ) : (
+                        /* Abstract Gradient Background if no image is available */
+                        <div className="w-full h-full bg-zinc-950 flex items-center justify-center p-6 transition-all duration-500 group-hover:bg-zinc-900">
+                            <div className="absolute inset-0 bg-grid-pattern opacity-[0.1] group-hover:opacity-[0.15] transition-opacity" />
+                            <span className="text-xl font-bold tracking-widest text-zinc-700/40 uppercase group-hover:text-zinc-500/50 transition-colors duration-300">
+                                {project.title.split(" ")[0]}
+                            </span>
+                        </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                </div>
+
+                <div className="flex flex-col p-6 sm:p-8 lg:col-span-5 lg:p-10">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">{project.role}</p>
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">
+                        {project.title}
+                    </h3>
+
+                    <p className="mt-4 text-sm leading-relaxed text-zinc-400 sm:text-base">
+                        {project.description}
+                    </p>
+
+                    <div className="mt-8 border-t border-white/[0.08] pt-6">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-600">What I built</p>
+                        <ul className="mt-4 space-y-3">
+                            {project.highlights.map((highlight) => (
+                                <li key={highlight} className="flex gap-3 text-sm leading-relaxed text-zinc-400">
+                                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white" />
+                                    {highlight}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                )}
-            </div>
 
-            {/* Content Area */}
-            <div className="flex flex-col flex-grow p-6">
-                
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-white group-hover:text-indigo-400 transition-colors duration-300">
-                    {project.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="mt-3 text-zinc-400 text-sm leading-relaxed flex-grow">
-                    {project.description}
-                </p>
+                    <div className="mt-8 flex flex-wrap gap-2">
+                        {project.tech.map((techItem) => (
+                            <span
+                                key={techItem}
+                                className="rounded-md border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[11px] font-medium text-zinc-500"
+                            >
+                                {techItem}
+                            </span>
+                        ))}
+                    </div>
 
-                {/* Tech Tags */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tech.map((techItem) => (
-                        <span
-                            key={techItem}
-                            className="px-2.5 py-1 bg-zinc-900/50 border border-zinc-800/80 rounded-md text-xs font-medium text-zinc-400 hover:text-zinc-300 hover:border-zinc-700 transition"
-                        >
-                            {techItem}
-                        </span>
-                    ))}
-                </div>
-
-                {/* Links */}
-                <div className="mt-6 pt-4 border-t border-zinc-900 flex items-center gap-4">
-                    {project.github && (
-                        <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm transition-colors duration-200"
-                        >
-                            <FiGithub className="w-4 h-4" />
-                            <span>Code</span>
-                        </a>
-                    )}
-                    {project.link && (
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm transition-colors duration-200 ml-auto"
-                        >
-                            <span>Live Demo</span>
-                            <FiExternalLink className="w-4 h-4" />
-                        </a>
-                    )}
+                    <div className="mt-auto flex flex-wrap items-center gap-3 pt-10">
+                        {project.github && (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-xl border border-white/[0.1] px-4 py-2.5 text-sm text-zinc-300 transition hover:border-white/20 hover:bg-white/[0.04] hover:text-white"
+                            >
+                                <FiGithub className="w-4 h-4" />
+                                <span>Code</span>
+                            </a>
+                        )}
+                        {project.link && (
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-black transition hover:-translate-y-0.5 hover:bg-zinc-200"
+                            >
+                                <span>Live Demo</span>
+                                <FiExternalLink className="w-4 h-4" />
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </article>
     );
 }

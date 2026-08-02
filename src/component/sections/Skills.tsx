@@ -1,5 +1,3 @@
-"use client";
-
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import SkillCard from "../ui/SkillCard";
@@ -9,25 +7,24 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="py-24 sm:py-32 relative overflow-hidden"
+            className="scroll-mt-20 py-20 sm:py-28 relative"
         >
             <Container>
                 <SectionHeading
-                    title="Skills"
-                    subtitle="Technologies"
+                    title="A focused toolkit"
+                    subtitle="02 / Capabilities"
+                    description="A practical stack for shipping polished interfaces and the product systems behind them."
                 />
 
-                <div className="relative overflow-hidden mt-12 py-4 marquee-mask">
-                    <div className="flex w-max animate-marquee gap-6">
-                        {[...skills, ...skills, ...skills].map((skill, index) => (
-                            <SkillCard
-                                key={`${skill.name}-${index}`}
-                                skill={skill}
-                            />
-                        ))}
-                    </div>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+                    {skills.map((skill, index) => (
+                        <SkillCard
+                            key={`${skill.name}-${index}`}
+                            skill={skill}
+                        />
+                    ))}
                 </div>
             </Container>
         </section>
     );
-}
+}

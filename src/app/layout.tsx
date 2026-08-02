@@ -13,9 +13,41 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Syed Hammad — Frontend Developer";
+const description = "Syed Hammad is a frontend developer in Lahore building fast, accessible product interfaces with React, Next.js, and TypeScript.";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  title: "Syed Hammad | Frontend Developer & React/Next.js Engineer",
-  description: "Portfolio of Syed Hammad, a frontend developer specializing in building beautiful, highly performant, and responsive web applications with React, Next.js, TypeScript, and Tailwind CSS.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Syed Hammad",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1731,
+        height: 909,
+        alt: "Syed Hammad — Frontend experiences, built with intent.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +62,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-          <Analytics /></body>
+        <Analytics />
+      </body>
     </html>
   );
 }

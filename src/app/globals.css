@@ -4,8 +4,8 @@
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
   --color-primary: #ffffff;
-  --color-accent: #6366f1; /* Indigo */
-  --color-accent-light: #818cf8;
+  --color-accent: #ffffff;
+  --color-accent-light: #d4d4d8;
 }
 
 :root {
@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -25,6 +26,11 @@ body {
   min-height: 100vh;
 }
 
+::selection {
+  background: rgba(129, 140, 248, 0.35);
+  color: #ffffff;
+}
+
 /* Custom visual utilities */
 .bg-grid-pattern {
   background-size: 50px 50px;
@@ -33,27 +39,31 @@ body {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
 }
 
-.marquee-mask {
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+.skill-card {
+  border-color: color-mix(in srgb, var(--skill-color) 18%, transparent);
 }
 
-/* Animations */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.skill-card:hover {
+  border-color: color-mix(in srgb, var(--skill-color) 50%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--skill-color) 16%, transparent);
 }
 
-.animate-marquee {
-  animation: marquee 35s linear infinite;
+.skill-icon {
+  color: var(--skill-color);
+  opacity: 0.85;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+.skill-card:hover .skill-icon {
+  opacity: 1;
+}
+
+.skill-name {
+  color: var(--skill-color);
+  opacity: 0.75;
+}
+
+.skill-card:hover .skill-name {
+  opacity: 1;
 }
 
 /* Custom Scrollbar */
@@ -73,4 +83,19 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

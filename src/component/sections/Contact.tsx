@@ -1,58 +1,43 @@
-"use client";
-
-import { useState, FormEvent } from "react";
-import { FiMail, FiLinkedin, FiGithub, FiMapPin, FiSend, FiCheckCircle } from "react-icons/fi";
+import { FiArrowUp, FiArrowUpRight, FiMail, FiLinkedin, FiGithub, FiMapPin } from "react-icons/fi";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
-import Button from "../ui/Button";
 
 export default function Contact() {
-    const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-    const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault();
-        setStatus("sending");
-
-        // Simulate API call
-        setTimeout(() => {
-            setStatus("success");
-            setFormState({ name: "", email: "", message: "" });
-            setTimeout(() => setStatus("idle"), 5000);
-        }, 1500);
-    };
-
     return (
         <section
             id="contact"
-            className="py-24 sm:py-32 relative overflow-hidden"
+            className="scroll-mt-20 pt-20 sm:pt-28 relative overflow-hidden"
         >
             {/* Soft Ambient Glow */}
-            <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full bg-indigo-500/5 blur-[90px] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full bg-white/[0.02] blur-[90px] pointer-events-none" />
 
             <Container>
                 <SectionHeading
                     title="Get In Touch"
-                    subtitle="Contact"
+                    subtitle="04 / Contact"
+                    description="Open to junior frontend roles, internships, and thoughtful freelance collaborations."
                 />
 
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-8">
-
-                    {/* Left Column: Info & Details */}
-                    <div className="lg:col-span-12 space-y-8">
-                        <div>
-                            <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-                                Let&apos;s build something together
+                <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-black p-6 sm:p-9 lg:p-12">
+                    <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                        <div className="max-w-3xl">
+                            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">Have an opportunity in mind?</p>
+                            <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+                                Let&apos;s make the next interface worth remembering.
                             </h3>
-                            <p className="mt-4 text-zinc-400 text-base leading-relaxed">
-                                I am currently looking for junior frontend roles, internships, or interesting freelance project collaborations. If you have an opportunity or just want to connect, feel free to drop me a message.
-                            </p>
                         </div>
+                        <a
+                            href="mailto:hammadshahali080@gmail.com?subject=Let%27s%20work%20together"
+                            className="inline-flex w-fit shrink-0 items-center gap-2 rounded-xl bg-white px-5 py-3 font-medium text-black transition hover:-translate-y-0.5 hover:bg-zinc-200"
+                        >
+                            Start a conversation
+                            <FiArrowUpRight className="h-4 w-4" />
+                        </a>
+                    </div>
 
-                        {/* Contact details list */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 shrink-0">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 shrink-0">
                                     <FiMail className="w-5 h-5" />
                                 </div>
                                 <div className="min-w-0 flex-1">
@@ -64,7 +49,7 @@ export default function Contact() {
                             </div>
 
                             <div className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-zinc-800 transition duration-300">
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 shrink-0">
+                                <div className="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 shrink-0">
                                     <FiMapPin className="w-5 h-5" />
                                 </div>
                                 <div className="min-w-0 flex-1">
@@ -77,14 +62,14 @@ export default function Contact() {
                                 href="https://www.linkedin.com/in/syedhammad-dev/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-indigo-500/30 hover:bg-zinc-950/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.06)] transition duration-300 group"
+                                className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/[0.06]"
                             >
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 group-hover:text-white transition duration-300 shrink-0">
+                                <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-[#0A66C2]/15 group-hover:text-[#4FA3E3]">
                                     <FiLinkedin className="w-5 h-5" />
                                 </div>
                                 <div className="min-w-0 flex-1">
-                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">LinkedIn</p>
-                                    <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="syedhammad-dev">syedhammad-dev</p>
+                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-[#4FA3E3]">LinkedIn</p>
+                                    <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-[#8CC8F2] transition truncate" title="syedhammad-dev">syedhammad-dev</p>
                                 </div>
                             </a>
 
@@ -92,90 +77,29 @@ export default function Contact() {
                                 href="https://github.com/S-Hammad08"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-4 p-4 rounded-xl border border-zinc-900 bg-zinc-950/10 hover:border-indigo-500/30 hover:bg-zinc-950/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.06)] transition duration-300 group"
+                                className="group flex items-center gap-4 rounded-xl border border-zinc-900 bg-zinc-950/10 p-4 transition duration-300 hover:border-white/30 hover:bg-white/[0.045]"
                             >
-                                <div className="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 group-hover:text-white transition duration-300 shrink-0">
+                                <div className="shrink-0 rounded-lg bg-zinc-900 p-2.5 text-zinc-300 transition duration-300 group-hover:bg-white/10 group-hover:text-white">
                                     <FiGithub className="w-5 h-5" />
                                 </div>
                                 <div className="min-w-0 flex-1">
-                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">GitHub</p>
+                                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-zinc-300">GitHub</p>
                                     <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="S-Hammad08">S-Hammad08</p>
                                 </div>
                             </a>
                         </div>
-                    </div>
-
-                    {/* Right Column: Form */}
-                    {/* <div className="lg:col-span-7 w-full p-8 rounded-2xl border border-zinc-900 bg-zinc-950/20 backdrop-blur-md">
-                        {status === "success" ? (
-                            <div className="flex flex-col items-center justify-center py-12 text-center">
-                                <FiCheckCircle className="w-16 h-16 text-emerald-500 mb-4 animate-bounce" />
-                                <h4 className="text-xl font-semibold text-white">Message Sent Successfully!</h4>
-                                <p className="mt-2 text-zinc-400 text-sm max-w-xs">
-                                    Thank you for reaching out. I will get back to you as soon as possible.
-                                </p>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-                                        Full Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        required
-                                        value={formState.name}
-                                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                                        // placeholder="John Doe"
-                                        className="w-full px-4 py-3 bg-zinc-950/40 border border-zinc-900 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all duration-300"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        required
-                                        value={formState.email}
-                                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                                        // placeholder="johndoe@example.com"
-                                        className="w-full px-4 py-3 bg-zinc-950/40 border border-zinc-900 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all duration-300"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-                                        Your Message
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        rows={5}
-                                        required
-                                        value={formState.message}
-                                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                                        placeholder="Hi Hammad, I'd like to talk about..."
-                                        className="w-full px-4 py-3 bg-zinc-950/40 border border-zinc-900 rounded-xl text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/20 transition-all duration-300 resize-none"
-                                    />
-                                </div>
-
-                                <Button
-                                    type="submit"
-                                    disabled={status === "sending"}
-                                    className="w-full flex items-center justify-center gap-2 cursor-pointer"
-                                >
-                                    <span>{status === "sending" ? "Sending..." : "Send Message"}</span>
-                                    <FiSend className="w-4 h-4" />
-                                </Button>
-                            </form>
-                        )}
-                    </div> */}
-
                 </div>
             </Container>
+
+            <footer className="mt-20 border-t border-white/[0.08] py-7">
+                <Container className="flex flex-col gap-4 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
+                    <p>© 2026 Syed Hammad. Designed and built in Lahore.</p>
+                    <a href="#main-content" className="inline-flex w-fit items-center gap-2 transition hover:text-zinc-300">
+                        Back to top
+                        <FiArrowUp className="h-3.5 w-3.5" />
+                    </a>
+                </Container>
+            </footer>
         </section>
     );
 }

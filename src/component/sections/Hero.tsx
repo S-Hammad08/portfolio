@@ -1,92 +1,93 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiDownload } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-28 sm:py-32">
       {/* Background Grids & Ambient Glows */}
       <div className="absolute inset-0 bg-grid-pattern opacity-100 pointer-events-none" />
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[300px] h-[300px] rounded-full bg-purple-500/10 blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-white/[0.025] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[300px] h-[300px] rounded-full bg-zinc-700/[0.035] blur-[80px] pointer-events-none" />
+      <div aria-hidden="true" className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-[13rem] font-black tracking-[-0.08em] text-white/[0.015] xl:block">
+        SH
+      </div>
 
-      <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <Container className="relative z-10 flex flex-col items-center justify-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl flex flex-col items-center"
+        >
+          {/* Status Indicator Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-zinc-900/80 border border-zinc-800/80 rounded-full mb-7">
+            {/* <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span> */}
+            <span className="text-xs font-medium tracking-wide text-green-200">
+              Available for Frontend Opportunities
+            </span>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl"
+          <p className="uppercase tracking-[0.28em] text-xs font-bold text-blue-300 mb-4">
+            Syed Hammad · Frontend Developer
+          </p>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.04] tracking-[-0.045em] mb-7 text-white">
+            Frontend experiences,
+            <span className="block text-white">
+              built with intent.
+            </span>
+          </h1>
+
+          <p className="text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed mb-9 max-w-2xl mx-auto">
+            I turn product ideas into fast, accessible interfaces with
+            <span className="text-zinc-200 font-medium"> React</span>,
+            <span className="text-zinc-200 font-medium"> Next.js</span>, and
+            <span className="text-zinc-200 font-medium"> TypeScript</span>—with equal attention to the code and the experience.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button href="#projects" className="inline-flex items-center gap-2">
+              View my work
+              <FiArrowUpRight className="w-4 h-4" />
+            </Button>
+
+            <Button href="/SyedHammadCv.pdf" download variant="outline" className="inline-flex items-center gap-2">
+              <FiDownload className="w-4 h-4" />
+              Download Resume
+            </Button>
+          </div>
+
+          <div className="mt-12 grid w-full max-w-2xl grid-cols-3 divide-x divide-white/[0.08] border-y border-white/[0.08] py-4 text-left sm:mt-14">
+            <div className="px-3 sm:px-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">Based in</p>
+              <p className="mt-1 text-xs font-medium text-zinc-300 sm:text-sm">Lahore, PK</p>
+            </div>
+            <div className="px-3 sm:px-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">Focus</p>
+              <p className="mt-1 text-xs font-medium text-zinc-300 sm:text-sm">Product UI</p>
+            </div>
+            <div className="px-3 sm:px-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-600">Open to</p>
+              <p className="mt-1 text-xs font-medium text-zinc-300 sm:text-sm">Remote roles</p>
+            </div>
+          </div>
+
+          <a
+            href="#about"
+            aria-label="Scroll to the About section"
+            className="mt-7 hidden items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-600 transition hover:text-zinc-300 sm:inline-flex"
           >
-            {/* Status Indicator Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-zinc-900/80 border white-800/280 rounded-full mb-6">
-              {/* <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span> */}
-              <span className="text-xs font-medium tracking-wide text-zinc-400">
-                Available for Frontend Opportunities
-              </span>
-            </div>
-
-            <p className="uppercase tracking-[0.25em] text-xs font-semibold text-indigo-400 mb-3">
-              Frontend Developer
-            </p>
-
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-100 to-zinc-500">
-              Hi, I&apos;m <br className="sm:hidden" />
-              <span className="text-white">Syed Hammad</span>
-            </h1>
-
-            <p className="text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
-              I specialize in constructing fast, high-fidelity, and pixel perfect user interfaces using <span className="text-zinc-200 font-medium">React</span>, <span className="text-zinc-200 font-medium">Next.js</span>, and <span className="text-zinc-200 font-medium">TypeScript</span>.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <a href="#projects">
-                <Button>
-                  View Project
-                </Button>
-              </a>
-
-              <a href="/SyedHammadCv.pdf" download>
-                <Button variant="outline" className="inline-flex items-center gap-2">
-                  <FiDownload className="w-4 h-4" />
-                  Download Resume
-                </Button>
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative group">
-              {/* Outer soft glow that amplifies on hover */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-indigo-500 to-purple-500 opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-700" />
-
-              {/* Image Container with precise border */}
-              <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] rounded-3xl overflow-hidden border border-zinc-800/80 bg-zinc-950/80">
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Syed Hammad"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-103"
-                  priority
-                />
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
+            Explore
+            <FiArrowDown className="h-3.5 w-3.5" />
+          </a>
+        </motion.div>
       </Container>
     </section>
   );

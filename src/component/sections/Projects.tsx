@@ -7,15 +7,16 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="py-24 sm:py-32 relative bg-zinc-950/10"
+            className="scroll-mt-20 py-20 sm:py-28 relative bg-zinc-950/10"
         >
             <Container>
                 <SectionHeading
-                    title="Featured Project"
-                    subtitle="My Work"
+                    title="Featured project"
+                    subtitle="03 / Selected work"
+                    description="One product, shown with enough context to explain the thinking—not just the final screen."
                 />
 
-                <div className="grid md:grid-cols-2 gap-8 mt-12">
+                <div className="space-y-8">
                     {projects.map((project, idx) => (
                         <ProjectCard
                             key={idx}
