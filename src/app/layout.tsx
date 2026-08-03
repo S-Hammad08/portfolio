@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Syed Hammad — Frontend Developer";
+const title = "Syed Hammad Web Developer";
 const description = "Syed Hammad is a frontend developer in Lahore building fast, accessible product interfaces with React, Next.js, and TypeScript.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL
