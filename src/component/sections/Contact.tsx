@@ -58,7 +58,6 @@ export default function Contact() {
                             <div className="min-w-0 flex-1">
                                 <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold transition-colors group-hover:text-indigo-400">Email</p>
                                 <p className="text-xs xl:text-sm text-zinc-300 group-hover:text-white transition truncate" title="hammadshahali080@gmail.com">
-                                    hammadshahali080@gmail.com
                                 </p>
                             </div>
                             {copied && (
