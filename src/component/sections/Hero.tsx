@@ -37,7 +37,7 @@ export default function Hero() {
             </span> */}
           {/* </div> */}
 
-          <p className="uppercase tracking-[0.28em] text-xs font-bold  text-yellow-300 mb-4">
+          <p className="uppercase tracking-[0.28em] text-xs font-bold  text-green-300 mb-4">
             Syed Hammad · Frontend Developer
           </p>
 
