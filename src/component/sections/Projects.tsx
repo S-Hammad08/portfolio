@@ -7,7 +7,7 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="scroll-mt-20 py-20 sm:py-28 relative bg-zinc-950/10"
+            className="scroll-mt-20 py-12 sm:py-20 relative bg-zinc-950/10"
         >
             <Container>
                 <SectionHeading
@@ -21,6 +21,7 @@ export default function Projects() {
                         <ProjectCard
                             key={idx}
                             project={project}
+                            index={idx}
                         />
                     ))}
                 </div>

@@ -7,7 +7,7 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="scroll-mt-20 py-20 sm:py-28 relative"
+            className="scroll-mt-20 py-12 sm:py-20 relative"
         >
             <Container>
                 <SectionHeading

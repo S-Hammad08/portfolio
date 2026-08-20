@@ -17,7 +17,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="scroll-mt-20 pt-20 sm:pt-28 relative overflow-hidden"
+            className="scroll-mt-20 pt-12 sm:pt-20 relative overflow-hidden"
         >
             {/* Soft Ambient Glow */}
             <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full bg-white/[0.02] blur-[90px] pointer-events-none" />

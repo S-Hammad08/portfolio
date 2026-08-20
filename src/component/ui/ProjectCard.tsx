@@ -14,13 +14,16 @@ type ProjectType = {
 
 type ProjectCardProps = {
     project: ProjectType;
+    index: number;
 };
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, index }: ProjectCardProps) {
+    const formattedIndex = String(index + 1).padStart(2, "0");
+
     return (
         <article className="group relative overflow-hidden rounded-3xl border border-white/[0.09] bg-black transition-all duration-500 hover:border-white/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
             <div className="flex items-center justify-between border-b border-white/[0.08] px-5 py-4 sm:px-7">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-zinc-500">01 / Featured build</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-zinc-500">{formattedIndex} / Featured build</p>
                 <div className="flex items-center gap-2 text-xs text-zinc-400">
                     {/* <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> */}
                     Live product
@@ -28,14 +31,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
 
             <div className="grid lg:grid-cols-12">
-                <div className="relative min-h-[260px] overflow-hidden border-b border-white/[0.08] bg-zinc-900 sm:min-h-[360px] lg:col-span-7 lg:min-h-[620px] lg:border-b-0 lg:border-r">
+                <div className="relative min-h-[260px] overflow-hidden border-b border-white/[0.08] bg-zinc-950 sm:min-h-[360px] lg:col-span-7 lg:min-h-[620px] lg:border-b-0 lg:border-r">
                     {project.image ? (
                         <Image
                             src={project.image}
                             alt={project.title}
                             fill
                             sizes="(min-width: 1024px) 58vw, 100vw"
-                            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
+                            className="object-contain p-4 sm:p-8 lg:p-12 transition-transform duration-700 group-hover:scale-[1.025]"
                         />
                     ) : (
                         /* Abstract Gradient Background if no image is available */
